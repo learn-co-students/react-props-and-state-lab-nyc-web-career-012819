@@ -1,18 +1,6 @@
 import React from 'react'
 
 class Pet extends React.Component {
-
-
-  state = {
-    clicked: false
-  };
-
-  clickHandler = () => {
-    console.log("clicked");
-    this.setState({ clicked: !this.state.clicked });
-  };
-
-
   render() {
 
     return (
@@ -32,17 +20,17 @@ class Pet extends React.Component {
           </div>
         </div>
         <div className="extra content">
-           <button className={this.props.isAdopted ? "ui primary button" : "ui disabled button"}>
+          {this.props.isAdopted ? (
+          <button className="ui disabled button">
             Already adopted
-          </button>
-
+          </button>)
+          : (
           <button
             onClick={() => this.props.onAdoptPet(this.props.id)}
-            className={this.props.isAdopted ? "ui disabled button" :
-            "ui primary button"}>
+            className="ui primary button">
             Adopt pet
           </button>
-
+        )}
         </div>
       </div>
     )

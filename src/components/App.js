@@ -36,7 +36,6 @@ class App extends React.Component {
   }
 
   adoptPet(petId) {
-    debugger
     const index = this.state.pets.findIndex(pet => pet.id === petId);
     const updatedPets = [...this.state.pets];
     updatedPets[index].isAdopted = true;
